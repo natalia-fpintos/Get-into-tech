@@ -1,8 +1,6 @@
-# Get Into Tech #
+# Get Into Tech: Day 3 #
 
-## Day 3 ##
-
-### DOD 4 Layer Model ###
+## DOD 4 Layer Model ##
 
 DOD: Department of Defense Four-Layer Model. It was developed in the 1970s for the DARPA, and eventually became the internet.
 
@@ -12,9 +10,10 @@ No.  | Layer              | Example
 3    | Transport          | TCP/UDP
 2    | Internet           | ICMP (Internet Control Messaging Protocol) and IP (Internet Protocol)
 1    | Network Interface  | Physical network
+<br/>
+<br/>
 
-
-### PHP Variables ###
+## PHP Variables ##
 
 In PHP they are declared with a `$` symbol. These pieces of data are stored in the computer's memory, concretely in the RAM (Random Access Memory).
 
@@ -23,9 +22,10 @@ The RAM has a special area called the **Register**, where the data for the varia
 The **Heap** is a section of the memory where the data for global variables is kept in an unmanaged way.
 
 The **Stack** instead is where the data is kept in an ordered way, if too much data is kept in the stack we "pop" our stack.
+<br/>
+<br/>
 
-
-### HTML ###
+## HTML ##
 
 - HTML v.4, most of the web is still in this version.
 - After that we had XHML v.1, it allowed us to use in mobiles (like Nokia) but it was very slow.
@@ -85,9 +85,10 @@ http://localhost:8080
 `rowspan` is an attribute that makes cells span many rows.
 
 `colspan` is an attribute that makes cells span many columns.
+<br/>
+<br/>
 
-
-#### Comments in HTML ####
+### Comments in HTML ###
 
 You can have regular and conditional comments. **Regular comments** are SGML tags and look like this:
 
@@ -102,8 +103,9 @@ You can have regular and conditional comments. **Regular comments** are SGML tag
   <link href="IE.css" rel="stylesheet">
 <![endif]-->
 ```
+<br/>
 
-#### Block vs inline elements ####
+### Block vs inline elements ###
 
 This is a block line divisor:
 ```html
@@ -115,9 +117,9 @@ This is an inline element:
 ```html
 Hey <span>you</span>!
 ```
+<br/>
 
-
-#### Colours and sizes ####
+### Colours and sizes ###
 
 **Colours:** We can test our websites with colour blindness filters.
 
@@ -126,9 +128,10 @@ Hey <span>you</span>!
 **Points:** We use points for things like printing, as it's a set value (1/72 of an inch).
 
 **Picas:** Size measure for typographic units (1/6 of an inch).
+<br/>
+<br/>
 
-
-#### Structural elements ####
+### Structural elements ###
 
 A website is structured with articles (the content), the navigation, header and footer.
 
@@ -151,9 +154,10 @@ A website is structured with articles (the content), the navigation, header and 
 ```
 
 The search engines only care about the actual content, the articles. The other structural elements are ignored in terms of content, are only used to organise the content in parts.
+<br/>
+<br/>
 
-
-#### Lists ####
+### Lists ###
 
 We can have 3 types of lists:
 - Unordered lists (have disks)
@@ -166,16 +170,17 @@ We can have 3 types of lists:
 - `<dl>` Description list (defines the list)
 - `<dt>` Definition term (what we will define)
 - `<dd>` Definition data (the definition)
+<br/>
 
-
-#### Fonts ####
+### Fonts ###
 
 **Serif:** with small lines attached to the end of a stroke in a letter or symbol, due to the way printers worked before.
 
 **Sans-serif:** modern, casual, doesn't have lines at the end of the strokes.
+<br/>
+<br/>
 
-
-#### ASCII vs Unicode ####
+### ASCII vs Unicode ###
 
 ASCII only has American characters, was invented for teletype.
 
@@ -186,18 +191,18 @@ In HTML we add these as entities, with the &; notation. It can be `&name;` or `&
 ```html
 &commat;
 ```
+<br/>
 
-
-#### Domains ####
+### Domains ###
 
 Sites to get your own domain name:
 ```
 https://uk.godaddy.com
 http://www.3ix.org
 ```
+<br/>
 
-
-#### Bookmarks ####
+### Bookmarks ###
 
 **Hyperlink bookmarks** work in pairs. One is the *Go-To* Target hyperlink and the other is the *Destination* Bookmark.
 
@@ -209,15 +214,18 @@ http://www.3ix.org
 <a href="#top">
   Clicking here will hop to the element with an id of "hop"
 </a>
+<!-- Bookmark to another page -->
+<a href="favourites.html#list">
+  Clicking here will hop to the element with an id of "list" in favourites.html
+</a>
 ```
- Research: jumping pages - need to include the path in the href.
- Research: burger menu
+<br/>
 
-Questions:
-What is the difference between a compiled and an interpreted language-
-What would you use an entity for and what characters do you need to use?: &;
-What kinds of lists are there and what tags they use?: ordered, unordered and definition
-What kind of tag is a comment in HTML?: a SGML tag
-What is the different between SGML and GML?: SGML is an ISO standard
-If you wanted to display a pound sign in HTML, would you do it in ASCII or in Unicode and why?: Unicode-
-What is a pica?: a fixed size measure for typographic units.
+**Questions:**
+1. What is the difference between a compiled and an interpreted language
+2. What would you use an entity for and what characters do you need to use?: &;
+3. What kinds of lists are there and what tags they use?: ordered, unordered and definition
+4. What kind of tag is a comment in HTML?: a SGML tag
+5. What is the different between SGML and GML?: SGML is an ISO standard
+6. If you wanted to display a pound sign in HTML, would you do it in ASCII or in Unicode and why?: Unicode
+7. What is a pica?: a fixed size measure for typographic units.
