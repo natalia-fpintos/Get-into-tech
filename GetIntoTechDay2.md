@@ -227,20 +227,20 @@ http://php.net/docs.php
 PHP was created in 1994. Currently in version 7.
 
 There are different ways we can organise a php file:
-```
+```php
 <?php
 echo "hi";
 ```
 This is an orphaned bracket, we don't close it because it means that from there onwards everything is PHP.
 
-```
+```php
 <?php
 echo "hi";
 ?>
 ```
 We can close them if we want to use different code that is not PHP in the same file.
 
-```
+```php
 <?="hi";
 ?>
 ```
@@ -262,11 +262,11 @@ All PHP statements end with a semicolon.
 
 PHP functions only do one thing (i.e. date()).
 
-```
+```php
 The date today is <?php echo date('d-m-Y'); ?>
 ```
 
-```
+```php
 The date today is <?= date('d-m-Y'); ?>
 ```
 
