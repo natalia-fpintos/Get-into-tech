@@ -33,14 +33,16 @@ We should **not** make assumptions!
 - Regular feedback
 - Fix bugs
 - Write good and testable code
-
+<br/>
+<br/>
 
 #### What is the difference between a programmer, a developer and a software engineer? ####
 
 - Programmers write code
 - Developers need a bigger set of skills
 - Software engineers continuously monitor the process to refine the process
-
+<br/>
+<br/>
 
 ### Agile ###
 
@@ -49,13 +51,16 @@ Started in 1927. It has 12 pillars. You can adapt it so it works for your compan
 Agile is a methodology for software development based on iterations and evolving based on customer requirements.
 
 Rapid delivery of working software.
-
+<br/>
+<br/>
 
 ### Scrum ###
 
 Scrum is an Agile framework.
 
 In Scrum, the work is divided in sprints. These are timeboxed efforts, a basic unit of development, usually 2 weeks.
+<br/>
+<br/>
 
 #### Scrum artifacts ####
 
@@ -87,7 +92,8 @@ They typically follow a template:
 ```
 As a <type of user>, I want <some capability> so that <some goal>.
 ```
-
+<br/>
+<br/>
 
 #### Scrum meetings ####
 
@@ -110,13 +116,15 @@ No knowing how to do something is not really an impediment, we can dedicate time
 The **sprint review** happens at the end of a sprint and is used to review work, receive feedback, showcase work and deliver results.
 
 The **sprint retrospective** also happens at the end of a sprint and is used to reflect on how the sprint went, what could be improved, what worked well, etc.
-
+<br/>
+<br/>
 
 #### Parts/roles of a Scrum team ####
 - Product owner
 - Scrum master
 - Development team
-
+<br/>
+<br/>
 
 ### What personality traits are essential for a software engineer to succeed? ###
 
@@ -153,7 +161,8 @@ The **sprint retrospective** also happens at the end of a sprint and is used to 
 - Methodical
 - Proactive
 - Patience
-
+<br/>
+<br/>
 
 ### The internet ###
 
@@ -164,14 +173,16 @@ The first internet networks were for the military or research:
 - ArpaNet in USA
 - Minitel in France
 - JANE in the UK
-
+<br/>
+<br/>
 
 #### Internet vs Intranet vs Extranet ####
 
 - Internet is the external network, it's public
 - Intranet is the internal network, it's private
 - Extranet is when we use the Internet to access the Intranet (i.e. access our bank account)
-
+<br/>
+<br/>
 
 #### Packet Internet Groper ####
 
@@ -187,7 +198,8 @@ $ ping www.ns.nl
 
 When we ping an address we get the IP address of the website (i.e. 95.101.18.20).
 A ping basically goes to the address and comes back and tells you how long it took.
-
+<br/>
+<br/>
 
 ### HTTP: HyperText Transfer Protocol ###
 
@@ -204,7 +216,8 @@ A ping basically goes to the address and comes back and tells you how long it to
 identify what routes to use. They stand for Internet Control Messaging Protocol.
 
 **DNS** is the Domain Name System. It provides a way to match an IP address to a domain that is easier to remember and identify. The DNS of websites we've visited is cached for performance and we can display it. We can also flush the DNS to clear it.
-
+<br/>
+<br/>
 
 ### Localhost ###
 
@@ -213,13 +226,15 @@ We can access our localhost, which is in our private IP address: 127.0.0.1
 $ ping localhost
 ```
 We also have a different public IP address, which is the one used outside our network.
-
+<br/>
+<br/>
 
 ### FTP: File Transfer Protocol ###
 
 If we try to access a site that runs in FTP with HTTP it won't work because it's a different
 protocol. We need to replace `http://` with `ftp://` instead.
-
+<br/>
+<br/>
 
 ### Dig ###
 
