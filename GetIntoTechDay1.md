@@ -1,8 +1,6 @@
-# Get Into Tech #
+# Get Into Tech: Day 1 #
 
-## Day 1 ##
-
-### What do software engineers do? ###
+## What do software engineers do? ##
 
 It is important that the developers **clarify** the business requirements
 That way the **specifications** are clear. It is good to ask questions about this.
@@ -35,14 +33,14 @@ We should **not** make assumptions!
 - Write good and testable code
 <br/>
 
-#### What is the difference between a programmer, a developer and a software engineer? ####
+### What is the difference between a programmer, a developer and a software engineer? ###
 
 - Programmers write code
 - Developers need a bigger set of skills
 - Software engineers continuously monitor the process to refine the process
 <br/>
 
-### Agile ###
+## Agile ##
 
 Started in 1927. It has 12 pillars. You can adapt it so it works for your company.
 
@@ -122,9 +120,9 @@ The **sprint retrospective** also happens at the end of a sprint and is used to 
 - Development team
 <br/>
 
-### What personality traits are essential for a software engineer to succeed? ###
+## What personality traits are essential for a software engineer to succeed? ##
 
-#### Skills: ####
+### Skills: ###
 - Good at solving problems
 - Communication and explaining
 - Programming language skills
@@ -137,7 +135,7 @@ The **sprint retrospective** also happens at the end of a sprint and is used to 
 - Visualising
 - Break down problems
 
-#### Traits: ####
+### Traits: ###
 - Creative
 - Think outside of the box
 - Attention to details
@@ -159,7 +157,7 @@ The **sprint retrospective** also happens at the end of a sprint and is used to 
 - Patience
 <br/>
 
-### The internet ###
+## The internet ##
 
 Recommended reading material:
 - Where wizards stay up late: The origins of the Internet.
@@ -170,14 +168,14 @@ The first internet networks were for the military or research:
 - JANE in the UK
 <br/>
 
-#### Internet vs Intranet vs Extranet ####
+### Internet vs Intranet vs Extranet ###
 
 - Internet is the external network, it's public
 - Intranet is the internal network, it's private
 - Extranet is when we use the Internet to access the Intranet (i.e. access our bank account)
 <br/>
 
-#### Packet Internet Groper ####
+### Packet Internet Groper ###
 
 Ping is a way to check how long it takes to send a package to a server.
 
@@ -194,7 +192,7 @@ A ping basically goes to the address and comes back and tells you how long it to
 <br/>
 <br/>
 
-### HTTP: HyperText Transfer Protocol ###
+## HTTP: HyperText Transfer Protocol ##
 
 **GML: General Markup Language.** The first markup language, became an ISO standard and was renamed **SGML**. From it came **HTML**. GML looked like this:
 ```
@@ -212,7 +210,7 @@ identify what routes to use. They stand for Internet Control Messaging Protocol.
 <br/>
 <br/>
 
-### Localhost ###
+## Localhost ##
 
 We can access our localhost, which is in our private IP address: 127.0.0.1
 ```
