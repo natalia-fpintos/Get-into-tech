@@ -34,14 +34,12 @@ We should **not** make assumptions!
 - Fix bugs
 - Write good and testable code
 <br/>
-<br/>
 
 #### What is the difference between a programmer, a developer and a software engineer? ####
 
 - Programmers write code
 - Developers need a bigger set of skills
 - Software engineers continuously monitor the process to refine the process
-<br/>
 <br/>
 
 ### Agile ###
@@ -93,7 +91,6 @@ They typically follow a template:
 As a <type of user>, I want <some capability> so that <some goal>.
 ```
 <br/>
-<br/>
 
 #### Scrum meetings ####
 
@@ -123,7 +120,6 @@ The **sprint retrospective** also happens at the end of a sprint and is used to 
 - Product owner
 - Scrum master
 - Development team
-<br/>
 <br/>
 
 ### What personality traits are essential for a software engineer to succeed? ###
@@ -162,7 +158,6 @@ The **sprint retrospective** also happens at the end of a sprint and is used to 
 - Proactive
 - Patience
 <br/>
-<br/>
 
 ### The internet ###
 
@@ -174,14 +169,12 @@ The first internet networks were for the military or research:
 - Minitel in France
 - JANE in the UK
 <br/>
-<br/>
 
 #### Internet vs Intranet vs Extranet ####
 
 - Internet is the external network, it's public
 - Intranet is the internal network, it's private
 - Extranet is when we use the Internet to access the Intranet (i.e. access our bank account)
-<br/>
 <br/>
 
 #### Packet Internet Groper ####
@@ -226,7 +219,6 @@ We can access our localhost, which is in our private IP address: 127.0.0.1
 $ ping localhost
 ```
 We also have a different public IP address, which is the one used outside our network.
-<br/>
 <br/>
 
 ### FTP: File Transfer Protocol ###
