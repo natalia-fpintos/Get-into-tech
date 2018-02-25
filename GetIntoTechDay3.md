@@ -11,7 +11,6 @@ No.  | Layer              | Example
 2    | Internet           | ICMP (Internet Control Messaging Protocol) and IP (Internet Protocol)
 1    | Network Interface  | Physical network
 <br/>
-<br/>
 
 ## PHP Variables ##
 
@@ -36,23 +35,27 @@ To check compatibility in browsers we can use this website:
 https://caniuse.com
 ```
 
-**Offline/Online** property is used to post offline, storing the information, then when you're online the tag changes and it's actually posted.
-
 ```html
 <!DOCTYPE html>
 ```
-This tag comes from SGML and tells us what kind of file it is.
+This tag comes from SGML and tells us what kind of file it is, as well as being version 5.
 
-`<meta>` tags change the behaviour of the page.
+The `<html>` element is the root element of an HTML page and all HTML content must be inside this element. It has two child elements: head and body.
 
-`<title>` appears in the tab, the bookmarks and Google.
+The `<head>` element contains meta information about the document. This typically defines the title, character set, styles, links, scripts, and other metadata. The `<title>` element specifies a title for the document which appears in the tab, the bookmarks and Google. The `<meta>` tags change the behaviour of the page.
+
+The `<body>` element contains the visible page content. It can include multiple structural elements such as `<h1>` and `<p>` tags.
+<br/>
+<br/>
+
+### Tags and Attributes ###
+
+In HTML5, `<br>` tags should be self-closing: `<br/>`
 
 Tags can be modified or enhanced by adding attributes.
 ```html
 <html lang="en">
 ```
-In HTML5, `<br>` tags should be self-closing: `<br/>`
-
 The `src` attribute gives us the source for images, the filepath.
 
 It's advised to use relative references instead of absolute ones, for two reasons:
@@ -66,21 +69,23 @@ https://www.sky.com.
 ```
 This would check com first, then sky, and at last www. It won't check our local hosts address book in case we already have an IP assigned to it, so it's a good way to bypass hosts that block pages.
 
+**Offline/Online** property is used to post offline, storing the information, then when you're online the tag changes and it's actually posted.
+
 The `alt` attribute tells you the alternate text for the image, used by screen readers.
 
 The `href` attribute is the hyperlink reference.
 
-- PNG: Portable Network Graphics
-- JPEG: Joint Photographic Experts Group
-- MPEG/MP4: Motion Pictures Experts Group - Layer 4 encoding (Layer 3 has the sound, Layer 4 has the visuals)
-- MP3: Motion Pictures Experts Group - Layer 3 encoding (Layer 3 has the sound)
+- **PNG:** Portable Network Graphics
+- **JPEG:** Joint Photographic Experts Group
+- **MPEG/MP4:** Motion Pictures Experts Group - Layer 4 encoding (Layer 3 has the sound, Layer 4 has the visuals)
+- **MP3:** Motion Pictures Experts Group - Layer 3 encoding (Layer 3 has the sound)
 
 When we want to serve in another port we need to specify this after localhost, otherwise it will assume it's port 80.
 ```
 http://localhost:8080
 ```
 
-`<th>` tags bolden and centre the contents of the cells. Can be used in any part of the table.
+`<th>` tags centre and make bold the contents of the cells. Can be used in any part of the table.
 
 `rowspan` is an attribute that makes cells span many rows.
 
@@ -107,6 +112,12 @@ You can have regular and conditional comments. **Regular comments** are SGML tag
 
 ### Block vs inline elements ###
 
+Every HTML element has a default display value depending on what type of element it is. This is block or inline in most cases.
+
+A **block-level** element always starts on a new line and takes up the full width available. (i.e. `<div>`, `<p>`, `<h1>` and `<form>`)
+
+An **inline** element does not start on a new line and only takes up as much width as necessary. (i.e. `<span>`, `<img>` and `<a>`)
+
 This is a block line divisor:
 ```html
 <div>Hey</div>
@@ -117,6 +128,20 @@ This is an inline element:
 ```html
 Hey <span>you</span>!
 ```
+<br/>
+
+The `<div>` element:
+- Used to structure a HTML document into sections
+- Groups content and makes styling easier
+- Doesn't add semantic meaning to the area
+
+The `<span>` element:
+- Creates an area of the document without creating a division
+- Used to apply styles inline
+- Doesn't add semantic meaning to the area
+
+If the area of the page you are creating has a semantic meaning use one of the new HTML5 **structural tags**.
+<br/>
 <br/>
 
 ### Colours and sizes ###
@@ -133,7 +158,18 @@ Hey <span>you</span>!
 
 ### Structural elements ###
 
-A website is structured with articles (the content), the navigation, header and footer.
+These are new HTML5 semantic elements, that clearly describe its meaning to both the browser and the developer.
+
+- `<header>`: Defines a header for a document or a section
+- `<nav>`: Defines a container for navigation links
+- `<section>`: Defines a section in a document
+- `<article>`: Defines an independent self-contained article
+- `<aside>`: Defines content aside from the content (like a sidebar)
+- `<footer>`: Defines a footer for a document or a section
+- `<details>`: Defines additional details
+- `<summary>`: Defines a heading for the <details> element
+
+It's better to use these instead of `<div>` and `<span>` if possible, as they give meaning to the content and provide an outline of the structure of the website for assistive technologies and search engines.
 
 ```html
 <header>
@@ -180,17 +216,28 @@ We can have 3 types of lists:
 <br/>
 <br/>
 
-### ASCII vs Unicode ###
+### Entities ###
+
+Some characters are reserved in HTML (i.e. `<` and `>`). To display these we need to use character entities. We add these as entities, with the &; notation. It can be `&name;` or `&#number;`:
+
+```html
+&commat;
+&lt;
+&gt;
+&quot;
+```
+
+A common entity is the non-breaking space: `&nbsp;`. This is a space that will not break into a new line. This is useful when breaking the words might be disruptive:
+```html
+10&nbsp;km/h
+```
+
+Another common use of is to prevent the truncation of spaces performed by browsers. If you write 10 spaces in your text, the browser will remove 9 of them. To add real spaces to your text, you can use `&nbsp;`.
 
 ASCII only has American characters, was invented for teletype.
 
 Unicode expands this to allow more characters (i.e. Cyrillic, braille, emoticons)
-
-In HTML we add these as entities, with the &; notation. It can be `&name;` or `&#number;`:
-
-```html
-&commat;
-```
+<br/>
 <br/>
 
 ### Domains ###
