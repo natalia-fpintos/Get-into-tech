@@ -41,31 +41,28 @@ You can have different machines that run your own DNS, web services, email servi
 
 ### Ports ###
 
+In programming, a port is a connection point and the way a client program specifies which server program it wishes to target. Port numbers range from 0 to 65535. Ports 0 to 1024 are reserved for use by certain privileged services.
+
 The ports information is in the root, in a folder named **etc**.
 `/etc/services` is the file that contains all the ports.
 If we edit this the ports for each service can be changed.
 
-- 20: FTP-data: to send data through FTP
-- 21: FTP: to communicate with an FTP server
-- 22: SSH: Secure shell, an encrypted terminal
-- 23: telnet is a protocol that you can use to access any protocol
-- 25: SMTP (email)
-- 53: DNS
-- 80: HTTP
-- 123: network time (the most accurate time)
-- 443: HTTPS
-- 512: WKS (well known services): a list of services that need to be remembered.
-- 666: Port for Doom game
-- 8080: a port that is generally unused, so we normally use it to run our web services.
+- **20 - FTP-data:** to send data through FTP
+- **21 - FTP:** to communicate with an FTP server
+- **22 - SSH:** Secure shell, an encrypted terminal
+- **23 - telnet:** is a protocol that you can use to access any protocol
+- **25 - SMTP:** (email)
+- **53 - DNS**
+- **80 - HTTP**
+- **123 - network time:** the most accurate time
+- **443 - HTTPS**
+- **512 - WKS (well known services):** a list of services that need to be remembered.
+- **666 - Doom:** Port for Doom game
+- **8080:** a port that is generally unused, so we normally use it to run our web services.
 
-`/etc/hosts` is the file that contains the hosts information.
-It should contain the localhost IP.
-In the early years of the internet, it was used as an "address book" to keep the hosts addresses with the names assigned to them (i.e. 10.21.31.1 Claire).
-That way we can simply ping Claire and that will ping that IP address.
+`/etc/hosts` is the file that contains the hosts information. It should contain the localhost IP. In the early years of the internet, it was used as an "address book" to keep the hosts addresses with the names assigned to them (i.e. 10.21.31.1 Claire). That way we can simply ping Claire and that will ping that IP address.
 
-All technological devices have a hosts file.
-The hosts file is checked before the DNS in case there's an address there instead.
-This way, if we substitute our localhost address with another domain, we can remove access to it:
+All technological devices have a hosts file. This file is checked before the DNS in case there's an address there instead. This way, if we substitute our localhost address with another domain, we can remove access to it:
 
 ```
  127.0.0.1 www.facebook.com
@@ -109,13 +106,15 @@ The network implies that the devices are used to send information across, so whe
 
 ### Proxy ###
 
-It's a device that acts on your behalf.
+It's a device that acts on your behalf. It acts as an intermediary between an endpoint device, such as a computer, and another server from which a user or client is requesting a service.
 <br/>
 <br/>
 
 ### Torrents ###
 
 Each device in the network shares a bit of the data downloaded. These can be infected by including malicious software inside the downloaded data (like a movie with a trojan).
+
+This is known as **Steganography**, that is, the practice of concealing a file, message, image, or video within another file, message, image, or video.
 <br/>
 <br/>
 
@@ -134,9 +133,9 @@ GET requests look like this:
 GET /folder/file.html HTTP/1.1
 ```
 
-- GET: the request method
-- /folder/file.html: what we are requesting
-- HTTP/1.1: what language we are speaking and the version
+- **GET** -> the request method
+- **/folder/file.html** -> what we are requesting
+- **HTTP/1.1** -> what language we are speaking and the version
 
 The response we receive is:
 
@@ -149,16 +148,28 @@ Content-Length: 1354
 <html><body><h1>The file!</h1></body></html>
 ```
 
-- HTTP/1.1: the language we confirm to respond in
-- 200: the response code
-- OK: the description of the response code
-- The following lines are a MIME-like (Multipurpose Internet Mail Extension, since 1993, enabled sending pictures) messages.
-- We have an empty line, and then the contents we requested.
+- **HTTP/1.1** -> the language we confirm to respond in
+- **200** -> the response code
+- **OK** -> the description of the response code
+- The following lines are a **MIME-like** (Multipurpose Internet Mail Extension, since 1993, enabled sending pictures) messages.
+- We have an **empty line**, and then the **contents** we requested.
 <br/>
 
 ### POST ###
 
-POST requests send packets to send the information in a secure and private way.
+POST requests send packets to send the information in a secure and private way. These requests are not cached, cannot be bookmarked and don't have length restrictions.
+<br/>
+<br/>
+
+### Web clients and Web servers ###
+
+**Web client software:** Chrome, Firefox, Safari, IE and Opera.
+
+The purpose these is to send HTTP requests and to display the response. If it's a web page, the data is parsed and displayed to the user as a website. Web browsers live on machines we call *"clients"*.
+
+**Web server software:** Apache, Microsoft’s Internet Information Server (IIS), Google Web Server (GWS) and nginx (pronounced Engine X).
+
+These receive HTTP requests and determine what HTTP response should be sent. Web server software lives on machines called *"web servers"*.
 <br/>
 <br/>
 
@@ -189,36 +200,38 @@ PHP powers Wordpress and 80% of the web.
 <br/>
 <br/>
 
-## Task: tech relevance ##
+## Exercise 3: tech relevance ##
 
 Relevant to the server: because the client doesn't need to know what is our server or database.
-- Apache: HTTP web server
-- MySQL: open-source relational database management system (RDBMS)
-- nGinX: free, open-source, high-performance HTTP server, reverse proxy, and IMAP/POP3 proxy server
-- ISS: extensible web server created by Microsoft for use with the Windows NT family
+- **Apache:** HTTP web server
+- **MySQL:** open-source relational database management system (RDBMS)
+- **nGinX:** free, open-source, high-performance HTTP server, reverse proxy, and IMAP/POP3 proxy server
+- **ISS:** extensible web server created by Microsoft for use with the Windows NT family
 
 Relevant to the server and the client (web browser): because those are the languages used to communicate between server and client.
-- HTML: HyperText Markup Language used to organise content in the web browser. The client renders the HTML and the server sends/stores it.
-- CSS: Cascading Style Sheets used to style the HTML.
-- Javascript: programming language used to manipulate the data in the website or server.
-- PHP: programming language used in the server side. Communicates information to the client.
+- **HTML:** HyperText Markup Language used to organise content in the web browser. The client renders the HTML and the server sends/stores it.
+- **CSS:** Cascading Style Sheets used to style the HTML.
+- **Javascript:** programming language used to manipulate the data in the website or server.
+- **PHP:** programming language used in the server side. Communicates information to the client.
 
 Relevant to the client (web browser): these are only relevant to the client because they use the data to display it to the user.
-- Chrome: Google browser, a client.
-- Firefox: Mozilla browser, a client.
-- Microsoft Edge: Microsoft browser, a client.
-- Lynx: Very first browser for the web, a client.
+- **Chrome:** Google browser, a client.
+- **Firefox:** Mozilla browser, a client.
+- **Microsoft Edge:** Microsoft browser, a client.
+- **Lynx:** Very first browser for the web, a client.
 
 Relevant to the server and the client (web browser): these are protocols that are used to use the internet. Both need to use these to communicate between themselves.
-- DNS: Domain Name Service, contains the corresponding IP addresses for the different domains.
-- HTTP: HyperText Transmission Protocol.
-- TCP: Transmission Control Protocol.
+- **DNS:** Domain Name Service, contains the corresponding IP addresses for the different domains.
+- **HTTP:** HyperText Transmission Protocol.
+- **TCP:** Transmission Control Protocol.
 
 Relevant to the client: used by the client to request information from a server.
-- HTTP Request methods: GET and POST. There are others, such as PUT (used in IE5 to allow dragging and dropping files).
-
+- **HTTP Request methods:** GET and POST. There are others, such as PUT (used in IE5 to allow dragging and dropping files).
+<br/>
 
 ## Introduction to PHP ##
+
+PHP was created in 1994 and released in 1995. Currently in version 7.
 
 It's called a pre-processor because it allows us to interact with the HTML and add value to it, make it dynamic.
 
@@ -227,14 +240,16 @@ PHP runs for the life of a PHP request, then it "dies". Makes memory very effici
 It has many libraries which make it easy to use features others have written before.
 
 HTTP parses (checks the structure of the language and identifies the components) HTTP requests into data and makes it available for use.
+
+PHP is a server-side scripting language, designed for web development. But is also used as a general-purpose programming language.
 <br/>
 <br/>
 
 ## PHP Documentation ##
 
+```
 http://php.net/docs.php
-
-PHP was created in 1994 and released in 1995. Currently in version 7.
+```
 
 There are different ways we can organise a php file:
 ```php
@@ -262,12 +277,14 @@ We can also omit php and echo with a PHP short output tag.
 
 REPL: Read–Eval–Program Loop
 
+```
 https://repl.it
+```
 
 This allows us to try some code without doing all the installations in our machine.
 
 
-## More keywords in PHP ##
+## PHP Basics ##
 
 All PHP statements end with a semicolon.
 
@@ -282,9 +299,9 @@ The date today is <?= date('d-m-Y'); ?>
 ```
 <br/>
 
-## Netbeans ##
+## Netbeans & Apache ##
 
-We use NetBeans as our IDE (Integrated Development Environment). A software application that provides facilities to develop software. It includes a source code editor, automation tools and a debugger. Most of them also have intelligent code completion (autocomplete help).
+We use NetBeans as our IDE (Integrated Development Environment), a software application that provides facilities to develop software. It includes a source code editor, automation tools and a debugger. Most of them also have intelligent code completion (autocomplete help).
 
 When creating a project in NetBeans, we need to make sure we add it to htdocs, so it's in our XAMPP server. XAMPP expects all our PHP files to be in /Applications/XAMPP/htdocs
 
@@ -293,6 +310,21 @@ We also need to make sure our source folder includes a folder for our project, w
 ![NetBeans new project](/images/NetBeansProject.png)
 
 We can create Command Line or Web projects, depending on which type of project it is, it will run in a different place.
+
+
+We will be using XAMPP to run our server.
+
+PHP also has it’s own built-in web server that can be started from a command line / terminal using the following command:
+
+```
+php –S localhost:8080
+```
+<br/>
+
+
+## PHP echo ##
+
+The `echo` statement is one way to get output to the screen. It can take multiple parameters and can be used with or without brackets: echo or echo().
 <br/>
 <br/>
 
@@ -304,13 +336,17 @@ We can also use `PHP_EOL` instead of `\n` to create a new line. This creates a n
 <br/>
 <br/>
 
-**Questions:**
+## PHP configuration ##
 
+The PHP interpreter is configurable with an external `ini` file. This file can prevent certain operations from running, turn off features, and even inject code before and after scripts run.
+
+Most important configuration options can now be set in the PHP script itself, using `ini_set()` (among other options). There are also specific functions like `error_reporting()` which sets how sensitive PHP will be to programming mistakes and errors.
+
+
+**Questions:**
 1. What does PHP_EOL behave like in the web?: \n
 2. What does PHP mean?: PHP Hypertext Pre-processor
 3. Mention 3 methods of the HTTP language: GET, POST, PUT
 4. Who or what is the HTTP method relevant to: both
 5. What is an IDE and an example? Development environment, Integrated Development Environment, NetBeans
 6. What is Agile, and what is its aim?: a way of working that lets you have a functional product quicker, and make it better through iterations.
-
-Stegonography: encode a piece of information into something like a movie, so you can catch people if they stream it.
