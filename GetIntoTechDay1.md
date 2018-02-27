@@ -98,13 +98,11 @@ This makes visible all the work necessary to meet the *Sprint Goal*.
 
 The **Scrum board** is a visual display of the progress of the Scrum team during a sprint. It shows which tasks are pending, in progress or done.
 
-![Scrum Board] (/images/board.jpg)
-
+![Scrum Board](/images/board.jpg)
 
 **Burndown charts** represent how we are doing comparing work left to do vs. time spent. It's useful to predict when the work will be completed.
 
-![Burndown Chart] (/images/burndown-chart.png)
-
+![Burndown Chart](/images/burndown-chart.jpg)
 
 **User stories** are a tool used in Agile to capture a short, simple description of a software feature (a requirement) from an end-user perspective. They describe type of user, what they want and why.
 
