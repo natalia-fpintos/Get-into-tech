@@ -502,6 +502,68 @@ echo true . 'hello' . null . '1.2';
 // 1hello1.2
 ```
 <br/>
+
+## PHP Conditions ##
+
+We can evaluate many different values in PHP to see if they are true or false. There are values which are not true or false per se, but can behave like true or false. These are known as 'truthy' and 'falsey'.
+
+Type   | Example
+------ | -------
+Falsey | '', 0, '0'
+Truthy | 'a', 1, '2'
+
+It's important to know what is falsey, as everything else will be truthy. Also, the notion of something being empty is important when dealing with user data.
+<br/>
+<br/>
+
+## Ternary Operator ##
+
+We can use a **ternary operator** when we want to do a simple if/else statement:
+
+```php
+$message = $age < 18 ? 'Young' : 'Adult';
+```
+
+There is also a **short ternary operator** which takes only two parameters. In this case, if the condition is true, the expression will be the value of the condition:
+
+```php
+echo 1 ?: 2; // 1
+echo 0 ?: 3; // 3
+```
+<br/>
+
+## The NULL coalescing operator ##
+
+This operator can be chained as many times as required, as opposed to the ternary operator, that is only restricted to two outcomes.
+
+When we use this operator, the value of the expression is the first not NULL value. Note that not NULL doesn't mean falsey (i.e. '' counts as not NULL).
+
+This operator is prefferred instead of the ternary operator sometimes because, if the first argument of a ternary operator is undefined, we will get a `NOTICE` error.
+
+We can use the `error_reporting(E_ALL)` statement to instruct PHP to emit all errors raised by the code (except syntax errors, these will block the execution).
+
+```php
+$value = null ?? null ?? 1; // 1
+$value = '' ?? 1; // ''
+
+// If there is no 'user' element in $_GET we will get a NOTICE error
+$username = $_GET['user'] ?: 'guest';
+
+// This picks the first not null value
+$username = $_GET['username'] ?? $_POST['username'] ?? 'Guest';
+```
+<br/>
+
+## Optional braces ##
+
+Curly braces are optional in PHP when we are writing if/elseif/else statements that only have one line of code per statement. However, this is not a recommended practice.
+
+```php
+if (1 < 2)
+  echo "1 is less than 2";
+else
+  echo "1 is not less than 2";
+```
 <br/>
 
 **Questions:**
