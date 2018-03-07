@@ -275,7 +275,9 @@ We can control the execution of our script wiith:
 
 ## Functions ##
 
-When we declare a function in PHP, the parameters/arguments are specified with the $ symbol.
+A **function signature** is the name of the function and the parameters it takes.
+
+When we declare a function in PHP, the **parameters/arguments** are specified with the $ symbol.
 
 ```php
 function say ($word1, $word2) {
