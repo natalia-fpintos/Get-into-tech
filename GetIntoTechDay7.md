@@ -23,5 +23,66 @@ var_dump(array_unique(str_split($dupes)));
 
 <br/>
 
-**homework: exercise 11B, 11C and 12A**
-**plus review strings + strpos(), stripos() and strripos()**
+## String formatting ##
+
+- `printf()`: this function produces a formatted string as output (like `echo`) and returns either the length of the output string or a
+negative value if an output error has occurred. Usually the return value is not used as it's common to have errors while outputting the string. It can be called with many parameters, the first one being the string, and the following ones the substitutions in order.
+
+```php
+$myString = 'Hello, world!';
+$thisIs = "This is %b";
+$true = true;
+
+printf($myString); // Hello, world!
+echo printf($myString); // Hello, world!13
+printf($true); // ''
+printf($thisIs, $true); // This is 1
+```
+
+- `sprintf()`: this functions returns a formatted string, which can be used with an `echo` statement if we want to. It can be called with two parameters as well, the first one being the string, and the following ones the substitutions in order.
+
+```php
+$myString = 'Hello, %s! My favourite number is %d';
+$world = 'world';
+$number = 4;
+
+echo sprintf($myString, $world, $number); // Hello, world! My favourite number is 4
+```
+
+## String manipulation ##
+
+- `substr()`: this function enables you to retrieve a portion of a string, based on its parameters. The first
+parameter should be the string, the second should be the start position, and the third parameter (optional) should be the length. To extract a string from the left-hand side, use a positive number. To extract a string from the right-hand side use a negative number. The number 0 is the leftmost position, and -1 is the rightmost position. If the length is not specified, the function creates a substring from the start position to the end of the main string.
+
+```php
+$myString = 'Hello, world!';
+
+echo substr($myString, 3); // lo, world!
+echo substr($myString, 7, 2); // wo
+echo substr($myString, -5, 1); // o
+```
+
+- `str_replace()`: this function searches a main string (third parameter) for a substring (first parameter) and replaces all occurrences of the substring with another string (second parameter). Then it returns the updated string. It can also take arrays as parameters. If both the search and replace parameters are arrays, the function takes a value from each array and uses the values to
+perform search and replace on the main string. Optionally the function can also take a fourth parameter which will be set to the number of replacements that were performed.
+
+```php
+$details = 'Today is #date# and my name is #name#';
+echo str_replace(['#date#', '#name#'], ['Monday', 'Sherlock'], $details); // Today is Monday and my name is Sherlock
+
+$letters = 'aaaa';
+str_replace('a', 'b', $letters, $count);
+echo $count; // 4
+```
+
+- `str_ireplace()`: this function works in the same way as `str_replace()`, but it is case insensitive.
+
+```php
+$details = 'Today is #DATE#';
+echo str_ireplace('#date#', 'Monday', $details); // Today is Monday
+```
+
+## String comparison ##
+
+In order to compare strings, we can use the conventional comparison operators (== or ===), but as these can have unpredictable results, we also have a series of functions that can help, especially with sorting with `usort()`:
+
+- `strcmp()`: this is a case insensitive comparison.
