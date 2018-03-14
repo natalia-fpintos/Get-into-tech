@@ -51,6 +51,16 @@ echo "Before rtrim() of trailing slashes: $rl_trim. After rtrim(): ", rtrim($rl_
 echo "Before ltrim() of leading %: $rl_trim. After ltrim(): ", ltrim($rl_trim, '%'), PHP_EOL;
 echo PHP_EOL;
 
+echo '"nd Parameter of _______trim() vs. rtrim() vs. ltrim()_______', PHP_EOL;
+$str1 = 'you are my sunshine';
+echo "Before trim(): $str1", PHP_EOL; 
+echo "After trim() with 'you': ", trim($str1, 'you'), PHP_EOL;
+echo "After trim() with 'you are m': ", trim($str1, 'you are m'), PHP_EOL;
+echo PHP_EOL;
+echo "2nd parameter is a collection of char, if very left of very right of the letter matched to one of the letters in 2nd parameter, the letter will get trimmed", PHP_EOL;
+echo PHP_EOL;
+echo "After rtrim() with 'eunsih': ", rtrim($str1, 'eunsih'), PHP_EOL;
+
 // str_replace()
 echo '_______str_replace()_______', PHP_EOL;
 echo "Replacing spaces for commas in 'I love cats!': ", str_replace(' ', ',', $cats), PHP_EOL;
