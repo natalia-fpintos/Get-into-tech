@@ -51,7 +51,7 @@ echo "Before rtrim() of trailing slashes: $rl_trim. After rtrim(): ", rtrim($rl_
 echo "Before ltrim() of leading %: $rl_trim. After ltrim(): ", ltrim($rl_trim, '%'), PHP_EOL;
 echo PHP_EOL;
 
-echo '"nd Parameter of _______trim() vs. rtrim() vs. ltrim()_______', PHP_EOL;
+echo '2nd Parameter of _______trim() vs. rtrim() vs. ltrim()_______', PHP_EOL;
 $str1 = 'you are my sunshine';
 echo "Before trim(): $str1", PHP_EOL; 
 echo "After trim() with 'you': ", trim($str1, 'you'), PHP_EOL;
@@ -118,3 +118,42 @@ echo PHP_EOL;
 echo '_______strncmp()_______', PHP_EOL;
 echo 'Using strncasecmp() to compare (case-insensitive) the first 3 characters of "CAT" and "caterpillars": ', strncasecmp('cat', 'caterpillars', 3), PHP_EOL;
 echo PHP_EOL;
+
+/**
+ * Show how many $needle in $stack
+ * @param string $stack 
+ * @param string $needle 
+ * @return int how many needle in stack
+ */
+ 
+function str_n_times($stack, $needle){
+    // initialize number of needles
+    $n = 0;
+    while(strpos($stack, $needle)){
+        //count the needdle
+        $n++; 
+        //find index number
+        $i = strpos($stack, $needle);
+        $i++;
+        $stack = substr($stack, $i, strlen($stack));
+  }  
+  return sprintf ("There are %d times of '%s' appearances", $n, $needle);
+}
+
+//example
+$str1 = 'In mathematics, a function is a relation between a set of inputs and a set of permissible outputs with the property that each input is related to exactly one output.';
+$str2 = 'is'
+echo str_n_times($str1, $str2);
+
+/**
+ * Formatting a name
+ * @param string $name
+ * @return string every first letter of word will be uppcase and rest of letters will be lower case
+ */
+ 
+function formatName ($name){
+    return ucwords(strtolower($name));
+}
+
+// example
+echo formatName($name1);
