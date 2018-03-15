@@ -1,8 +1,4 @@
 <?php
-
-<?php
-
-
  
 $cats = 'I love cats!';
 $dogs = 'I also love dogs!';
