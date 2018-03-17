@@ -224,5 +224,204 @@ echo strcmp($string1, $string2); // 32 (cats is greater than CATS)
 $string1 = 'cats';
 $string2 = 'CATS';
 
-echo strcasecmp($string1, $string2); // 0 (cats is equal than CATS)
+echo strcasecmp($string1, $string2); // 0 (cats is equal to CATS)
+```
+
+- `strncmp()`: this is a case sensitive comparison that takes a parameter to determine how many characters to compare. It returns 0 if the substrings are identical, 1 or more if the first substring is greater than the second, and -1 or less if the first substring is smaller than the second.
+
+```php
+$string1 = 'cats';
+$string2 = 'CATERPILLAR';
+
+echo strncmp($string1, $string2, 3); // 32 (cat is greater than CAT)
+```
+
+- `strncasecmp()`: this is a case insensitive comparison that takes a parameter to determine how many characters to compare. It returns 0 if the substrings are identical, 1 or more if the first substring is greater than the second, and -1 or less if the first substring is smaller than the second.
+
+```php
+$string1 = 'cats';
+$string2 = 'CATERPILLAR';
+
+echo strcasecmp($string1, $string2, 3); // 0 (cat is equal to CAT)
+```
+
+Additionally, PHP7 introduces the "spaceship operator" <=> (combined comparison operator) which has similar semantics to strcmp():
+
+```php
+echo 'a' <=> 'a'; // 0
+echo 'a' <=> 'b'; // -1
+echo 'b' <=> 'a'; // 1
+```
+<br/>
+
+## Regular Expressions ##
+
+Regular expressions (regexs or REs), enable you to specify a pattern against which a string can be searched for substrings matching the pattern.
+
+PHP uses Perl Compatible Regular Expressions (PCRE).
+<br/>
+<br/>
+
+### Some functions for Regex ###
+
+- `preg_match()`: this function uses a regular expression to search for a matching pattern in a string. It returns 1 if a match is found, 0 if it couldn't find a match, and false if there was an error. Optionally, a third parameter can be passed with a variable, where the function will save the matched string.
+
+```php
+$pattern = '/\w+/';
+$myString = 'Yoko is a dog';
+
+echo preg_match($pattern, $myString, $match); // 1
+print_r($match);
+/*
+Array
+(
+    [0] => Yoko
+)
+*/
+```
+
+- `preg_match_all()`: works in the same way as `preg_match()`, but it performs a global search, so it can find many matches in the same string. It can also return all these matches in the optional third parameter variable.
+
+```php
+$pattern = '/\w+/';
+$myString = 'Yoko is a dog';
+
+echo preg_match_all($pattern, $myString, $match); // 1
+print_r($match);
+/*
+Array
+(
+    [0] => Array
+        (
+            [0] => Yoko
+            [1] => is
+            [2] => a
+            [3] => dog
+        )
+
+)
+*/
+```
+
+- `preg_replace()`: this function uses a regular expression to look for a match, and replaces it with a different string. Then it returns the altered string.
+
+```php
+$pattern = '/\w+/';
+$myString = 'Yoko is a dog';
+
+echo preg_replace($pattern, 'XXX', $myString); // XXX XXX XXX XXX
+```
+
+- `preg_split()`: this function works in a similar way as `explode()` but using a regular expression to split the string and save the results in an array.
+
+```php
+$pattern = '/\s/';
+$myString = "Yoko is\ta dog";
+
+$result = preg_split($pattern, $myString);
+print_r($result);
+/*
+Array
+(
+    [0] => Yoko
+    [1] => is
+    [2] => a
+    [3] => dog
+)
+*/
+```
+<br/>
+
+### Grouping ###
+
+Regular expressions can use capture groups `()` to group characters and apply quantifiers.
+
+```php
+$pattern = '/([A-Z][0-9])+/';
+$myString = 'ABA2A345';
+preg_match($pattern, $myString, $match);
+print_r($match);
+/*
+Array
+(
+    [0] => A2A3
+    [1] => A3 -> The last match of the capture group
+)
+*/
+```
+<br/>
+
+### Back references ###
+
+Back references for regular expressions are based on the content of capture groups. Their syntax is a backslash followed by a number, which represents the number of the capture group (i.e. 1 for the first capture group, 2 for the second, etc).
+
+```php
+$pattern = '/([A-Z])([0-9])+\1/';
+$myString = 'ABA2A345';
+preg_match($pattern, $myString, $match);
+print_r($match);
+/*
+Array
+(
+    [0] => A2A
+    [1] => A
+    [2] => 2
+)
+*/
+```
+<br/>
+
+## Number formatting ##
+
+The `number_format()` function returns a string that contains a number using the numerical punctuation format specified. It can also specify the number of decimal places.
+
+```php
+$salary = 33452.34;
+
+echo number_format($salary, 1, ',', '.'); // 33.452,3
+```
+<br/>
+
+## Binary Calculator ##
+
+PHP provides the `bcmath` library (Binary Calculator Math) for arbitrary precision mathematics. It supports numbers of any size and precision, represented as strings, to perform calculations that must be accurate to a high number of decimal places.
+
+```php
+echo bcadd('2.345', '3.791'); // 6.136
+```
+
+## File IO ##
+
+PHP supports file input/output as most programming languages. Simple text files are suitable for relatively small amounts of data, or data held sequentially such as log files. Reading such files is normally sequential, you start at the beginning of the file then read each line until you find what you are looking for.
+<br/>
+<br/>
+
+### Opening a file ###
+
+In order to work with a file we first need to open it. We do so with the `fopen()` function. This returns a resource that references the file, allowing us to perform different operations with it. We specify the operations we will allow as a parameter in the `fopen()` function:
+
+Parameter | Mode
+--------- | -------
+r         | Read
+w         | Write. If file doesn't exist, create it. If it does exist, overwrite contents.
+a         | Append. If file doesn't exist, create it. If it does exist, append contents at the end.
+x         | Create and write. If file already exists, we will get an error.
+r+        | Read and write
+w+        | Read and write. If file doesn't exist, create it. If it does exist, overwrite contents.
+a+        | Read and append. If file doesn't exist, create it. If it does exist, append contents at the end.
+x+        | Create, read and write. If file already exists, we will get an error.
+<br/>
+
+### Reading from a file ###
+
+The simplest way to read a text file is line-by-line in a loop. For this purpose we can use the `fgets()` function that reads line by line the contents of the file (or up to the maximum length specified in an optional parameter).
+
+The `feof()` function is very useful when reading from a file, as it tests if the file pointer has reached the end of file (EOF).
+
+```php
+$file = fopen('file.txt', 'r');
+
+while (!feof($row = fgets($file))) {
+  echo $row;
+}
 ```
