@@ -207,6 +207,22 @@ echo $pin == $number; // true
 echo $pin === $number; // false
 ```
 
-In order to compare strings, we can use the conventional comparison operators (== or ===), but as these can have unpredictable results, we also have a series of functions that can help, especially with sorting with `usort()`:
+In order to compare strings, we can use the conventional comparison operators (== or ===), but as these can have unpredictable results, we also have a series of functions that can help, especially when sorting with `usort()`. These also allow us to do case sensitive and case insensitive comparisons, as well as determine how many characters to compare from a string.
 
-- `strcmp()`: this is a case insensitive comparison.
+- `strcmp()`: this is a case sensitive comparison. It returns 0 if the strings are identical, 1 or more if the first string is greater than the second, and -1 or less if the first string is smaller than the second.
+
+```php
+$string1 = 'cats';
+$string2 = 'CATS';
+
+echo strcmp($string1, $string2); // 32 (cats is greater than CATS)
+```
+
+- `strcasecmp()`: this is a case insensitive comparison. It returns 0 if the strings are identical, 1 or more if the first string is greater than the second, and -1 or less if the first string is smaller than the second.
+
+```php
+$string1 = 'cats';
+$string2 = 'CATS';
+
+echo strcasecmp($string1, $string2); // 0 (cats is equal than CATS)
+```
