@@ -425,3 +425,95 @@ while (!feof($row = fgets($file))) {
   echo $row;
 }
 ```
+
+We can also read from a file with other methods:
+
+- `fread()`: this function enables us to read a specified number of bytes, which are passed as a parameter.
+
+- `file_get_contents()`: allows us to read a file in one lump (known as *slurping*). Then it is saved inside a variable as a string, including any `\n` and other characters. It doesn't require to open or close the file.
+
+- `file()`: similar to `file_get_contents()`, it reads the whole file by *slurping* and saves each line in an indexed array. It doesn't require to open or close the file.
+<br/>
+
+### Writing to a file ###
+
+We can write to a file with the function `fwrite()` or `fputs()`, both are the same. These functions return the number of bytes that were written. Also, we can specify the maximum number of bytes we want to write.
+
+```php
+$file = fopen('file.txt', 'a');
+fwrite($file, "A new line!\n");
+```
+
+We can also write to a file with other methods:
+
+- `file_put_contents()`: this function is the opposite of slurp. It puts the value of a variable (which can be a scalar variable or an array) into a file. Optionally we can specify flags to control what we write. A common flag used is `FILE_APPEND` (if file $filename already exists, append the data to the file instead of overwriting it). This function doesn't require to open or close the file.
+<br/>
+
+### Testing before using a file ###
+
+It is good practice to test for errors when reading or writing to files:
+
+- `is_readable()`: checks if we have read permissions.
+- `is_writable()`: checks if we have write permissions.
+- `file_exists()`: checks if a file or directory exists.
+<br/>
+
+### Other file functions ###
+
+We have other useful file functions:
+
+- `fflush()`: this function forces a write of all buffered output to the resource in the file handle.
+
+- `fileperms()`: gets permissions for the file as a numeric mode value.
+
+- `highlight_file()`: prints or returns the code contained in a file highlighting the syntax.
+
+- `touch()`: if a file doesn't exist, it will be created. If it does exist, it sets the access and modification times of the file.
+
+- `opendir()`, `readdir()`, `closedir()`: allows to iterate through a directory.
+
+- `filesize()`: returns the size of the file in bytes.
+
+- `filetype()`: returns the type of the file.
+
+- `readfile()`: reads a file and writes it to stdout.
+
+- `stream_get_line()`: reads from a file, up to a number of bytes or a delimiter.
+
+- `unlink()`: deletes a file.
+<br/>
+
+### Directory functions ###
+
+There a number of functions available to work with the directories:
+
+- `chdir()`: changes the directory.
+- `chroot()`: changes the root directory.
+- `closedir()`: closes the directory in the handle.
+- `dir()`: returns an instance of the Directory class.
+- `getcwd()`: returns the current working directory.
+- `opendir()`: open directory handle.
+- `readdir()`: reads an entry from the directory handle.
+- `rewinddir()`: rewinds the directory handle.
+- `scandir()`: lists the files and directories inside the specified path.
+<br/>
+
+## XML ##
+
+The Extensible Markup Language (XML) is a popular data exchange format, which allows us to structure data for storing and transporting across the web or between organisations. This markup language consists of a hierarchical structure similar to HTML, but the tags are customised to describe the data they contain, as well as the properties of the elements. It was designed to be human and machine readable.
+
+XML documents consist of elements, attributes and text nodes. An XML tree starts at a root element and branches from the root to child elements.
+
+The XML prolog is optional, it must come first in the document:
+
+```xml
+<?xml version=‘1.0’ encoding=‘UTF-8’ ?>
+```
+
+In XML, it is illegal to omit the closing tag. Also, XML tags are case sensitive. The tag `<Note>` is different from the tag `<note>`. Therefore opening and closing tags must be written with the same case.
+<br/>
+<br/>
+
+### Reading XML ###
+
+We can read XML from a variable (stored as a string) with the `simplexml_load_string()` function. This returns an object of type SimpleXMLElement.
