@@ -500,7 +500,7 @@ There a number of functions available to work with the directories:
 
 ## XML ##
 
-The Extensible Markup Language (XML) is a popular data exchange format, which allows us to structure data for storing and transporting across the web or between organisations. This markup language consists of a hierarchical structure similar to HTML, but the tags are customised to describe the data they contain, as well as the properties of the elements. It was designed to be human and machine readable.
+The **eXtensible Markup Language** (XML) is a popular data exchange format, which allows us to structure data for storing and transporting across the web or between organisations. This markup language consists of a hierarchical structure similar to HTML, but the tags are customised to describe the data they contain, as well as the properties of the elements. It was designed to be human and machine readable.
 
 XML documents consist of elements, attributes and text nodes. An XML tree starts at a root element and branches from the root to child elements.
 
@@ -516,4 +516,88 @@ In XML, it is illegal to omit the closing tag. Also, XML tags are case sensitive
 
 ### Reading XML ###
 
-We can read XML from a variable (stored as a string) with the `simplexml_load_string()` function. This returns an object of type SimpleXMLElement.
+We can read XML from a variable (stored as a string) with the `simplexml_load_string()` function. This returns an object of type **SimpleXMLElement**.
+
+Similarly, if we want to read XML data from a file, we can use the `simplexml_load_file()` function and pass it the name of the XML file. This will also return an object of type SimpleXMLElement.
+<br/>
+<br/>
+
+### SimpleXMLElement ###
+
+This class comes with a very useful method named `children()` which allows us to access the elements inside the instance of the class. PHP uses the **object operator** `->` to access the properties and methods of an object, so in order to call this function we need to use the object operator (a.k.a. skinny arrow or single arrow).
+
+Once we have used `children()` to return the children of a given node, we can use the object operator again to access each of the properties of the returned children.
+
+```php
+$xml = "<bookstore><book><title lang='en'>Harry Potter and the Philosopher's Stone</title><genre>Adventures</genre></book><book><title lang='fr'>Les Miserables</title><genre>Drama</genre></book></bookstore>";
+
+$xmlNodes = simplexml_load_string($xml);
+
+foreach ($xmlNodes->children() as $book) {
+  echo $book->title, PHP_EOL;
+  echo $book->genre, PHP_EOL, PHP_EOL;
+}
+
+/*
+Harry Potter and the Philosopher's Stone
+Adventures
+
+Les Miserables
+Drama
+
+*/
+```
+
+To access **attributes** within elements, we need to use array-like notation to access the attribute by name.
+
+```php
+$xml = "<bookstore><book><title lang='en'>Harry Potter and the Philosopher's Stone</title><genre>Adventures</genre></book><book><title lang='fr'>Les Miserables</title><genre>Drama</genre></book></bookstore>";
+
+$xmlNodes = simplexml_load_string($xml);
+
+foreach ($xmlNodes->children() as $book) {
+  echo $book->title, PHP_EOL;
+  echo 'Language: ', $book->title['lang'], PHP_EOL;
+}
+
+/*
+Harry Potter and the Philosopher's Stone
+Language: en
+Les Miserables
+Language: fr
+*/
+```
+<br/>
+
+### Output buffering ###
+
+**Output buffering** is a technique to capture all outputs (i.e. echo or printf) as a value. PHP’s output control functions prevent the output from being sent, and allow us to determine when we want to do so.
+
+- **Without output buffering** (as default): your HTML is sent to the browser in pieces as PHP processes through your script.
+
+- **With output buffering**: your HTML is stored in a variable and sent to the browser as one piece at the end of your script. The main advantage is that it decreases the amount of time it takes to download and render your HTML because it's not being sent to the browser in pieces as PHP processes the HTML.
+
+We have a few of functions to enable this:
+
+- `ob_start()`: this function turns the output buffering on. All output will be stored in an internal buffer while this mode is active.
+
+- `ob_get_contents()`: with this function we can copy the contents of the internal buffer and store them in a string variable.
+
+- `ob_end_flush()`: this function outputs what is stored in the internal buffer and turns off the buffering.
+
+- `ob_end_clean()`: this function discards the contents stored in the internal buffer and turns off the buffering.
+
+- `ob_get_clean()`: with this function we can get the current contents of the output buffer and then discard them, also it turns off the buffering. It is equivalent to calling `ob_get_contents()` and `ob_end_clean()`.
+<br/>
+
+### Serialization ###
+
+**Serialization** is the process of converting an object into a stream of bytes, in order to store the object or transmit it to memory, a database, or a file.
+
+The purpose of serialization is to save the state of an object, so we can recreate it again when needed. The reverse process is known as **deserialization**.
+
+PHP provides functions for both processes:
+
+- `serialize()`: can take all data types (except resource) as an input. It returns the type serialized as a string.
+
+- `unserialize()`: can take the serialized string as an input and returns the converted value. The type can be boolean, integer, float, string, array or object. If the passed string is not unserializeable, then it returns false and issues an `E_NOTICE` error.
