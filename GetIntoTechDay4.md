@@ -101,7 +101,7 @@ It can be used to apply a unique style for a single element. This is not recomme
 ```
 <br/>
 
-### CSS Inheritance and Specificity###
+### CSS Inheritance and Specificity ###
 
 Though CSS styles can be specified in many ways, they will all cascade into one virtual style sheet in the end.
 
