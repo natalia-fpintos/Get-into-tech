@@ -147,6 +147,77 @@ There are also functions in PHP to access parts of associative arrays:
 - `array_column()`: this function takes an array whose elements are arrays, and extracts the values at a key.
 <br/>
 
+### Array iteration ###
+
+We have a handful of functions that allow us to iterate through the contents of an array:
+
+- `array_map()`: this function applies a callback function to each element of an array and returns an array with the result of each of the function return values.
+
+- `array_filter()`: applies a callback function (a predicate function) that returns true or false. If the function returns true for the element, it will keep the value in the returned array. If it returns false, it will remove the value.
+
+- `array_walk()`: this function applies a callback function to each element of an array, but it discards the return values.
+
+- `array_walk_recursive()`: this function applies a callback function to each element of an array, but it discards the return values. It is used for nested arrays.
+<br/>
+
+### Transforming arrays ###
+
+Transforming the data in one array and returning it in a return array is known as **functional programming**.
+
+```php
+$input = range(0, 8, 2); // produces [0, 2, 4, 6, 8]
+$transformer = function ($element) {
+  return $element ** 2;
+};
+
+$output = array_map($transformer, $input);
+```
+<br/>
+
+### Closures & Function dereferencing ###
+
+A closure is a function that has its own environment. Inside this environment, at least there should be one bound variable.
+
+For example, this would happen when we create a function that takes a parameter, which is then used in an inner function that is returned. When we call the outer function, our parameter is bound to the inner function, so when we call the inner function it will always have the same bound parameter.
+
+This way, functions can return functions that can be used directly, using the function as a value.
+
+```php
+// This is a closure
+function messageType($type) {
+  return function ($message) use($type) {
+    return $type . $message;
+  }
+}
+
+$sayName = messageType("My name is ");
+
+// This is dereferencing a function
+echo $sayName("Yoko"); // My name is Yoko
+```
+<br/>
+
+### Calling functions ###
+
+It is possible to assign a variable to a function and then call it as if it was the function:
+
+```php
+$upperCase = 'ucwords';
+
+echo $upperCase("hello, world!"); // Hello, World!
+```
+
+We can also do this in a similar way with these functions:
+
+- `call_user_func()`: it gets a function name and its parameter as strings.
+
+- `call_user_func_array()`: this function treats a single array passed as a parameter as sequential arguments passed to the function called. It is equivalent to using the unpacking operator `...$array`.
+
+- `function_exists()`: takes a function name and returns true if the function exists.
+
+- `get_defined_functions()`: returns an array with the names of all the functions defined.
+<br/>
+
 ## HTML & HTML forms ##
 
 html5doctor site
