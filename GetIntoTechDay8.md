@@ -218,6 +218,27 @@ We can also do this in a similar way with these functions:
 - `get_defined_functions()`: returns an array with the names of all the functions defined.
 <br/>
 
+### Dynamic dispatch ###
+
+Calling a function using a string version of its name is known as **dynamic dispatch**. This is dynamic because the function that gets called depends on a variable which might change at runtime.
+
+```php
+function websiteA ($domain, $page) {
+  echo 'A';
+}
+
+function websiteB ($domain, $page) {
+  echo 'B';
+}
+
+$url = 'www.example.com/A';
+$urlParts = explode("/", $url);
+
+call_user_func_array('website' . $urlParts[1], $urlParts); // This calls websiteA() with the parameters inside $urlParts
+
+$function = "website{$urlParts[1]}";
+```
+
 ## HTML & HTML forms ##
 
 html5doctor site
