@@ -237,12 +237,184 @@ $urlParts = explode("/", $url);
 call_user_func_array('website' . $urlParts[1], $urlParts); // This calls websiteA() with the parameters inside $urlParts
 
 $function = "website{$urlParts[1]}";
+$function(...$urlParts);
 ```
+<br/>
+
+### Function arguments ###
+
+There are a few additional functions that are useful when working with functions in PHP:
+
+- `func_get_args()`: when we call this function from within a function, it returns a sequential array of the arguments that the function was passed when it was called.
+
+- `func_get_arg()`: when we call this function from within a function, it returns a single argument passed when the function was called.
+
+- `func_num_args()`: when we call this function from within a function, it returns the number of arguments that the function was passed when it was called.
+<br/>
+
 
 ## HTML & HTML forms ##
 
-html5doctor site
-html5pattern site
+A couple of useful websites when working with HTML 5 are these two:
+
+```
+http://html5doctor.com
+http://www.html5pattern.com
+```
+
+When creating a HTML file, the doctype is a required tag to make sure the browser knows what version of HTML we are using.
+
+The character encoding is also required. The webpage will still work without it, but we would be exposed to security vulnerabilities.
+<br/>
+<br/>
+
+### HTML forms ###
+
+Forms allow users to interact with programs running on the server. The web server works as a gateway for the user to send data to the back-end and return a response
+
+Forms are created with the `<form>` tag, which takes two attributes. The first one is the `method` that states how the data is sent to the server, and the second is the `action`, which indicates the URL of a resource that processes the form (this can be a server-side program or script, or a mailto URL).
+
+```html
+<form action="/enrol.php" method="POST">
+  <input type="text" name="username"/>
+  <input type="text" name="password"/>
+  <input type="submit" value ="Enrol"/>
+</form>
+```
+<br/>
+
+### HTML form inputs ###
+
+Form fields are usually defined with an `<input>` tag. The `type` attribute of this tag specifies if this should be a checkbox, a text field, a radio button, etc. Also, each input element has a `name` and a `value` attribute.
+
+```html
+<input type="text"/>
+<input type="checkbox"/>
+<input type="radio"/>
+<input type="email"/>
+<input type="password"/>
+<input type="submit"/>
+```
+
+```html
+<!-- Unique selection -->
+<select name="title">
+  <option value="1">Miss</option>
+  <option value="2">Mrs</option>
+  <option value="3">Ms</option>
+  <option value="4">Mr</option>
+</select>
+
+<!-- Multiple selection -->
+<select name="shopping" multiple>
+  <option value="1">Apple</option>
+  <option value="2">Orange</option>
+  <option value="3">Banana</option>
+</select>
+
+<!-- Free text area -->
+<textarea name="comments" rows="5" cols="10"></textarea>
+```
+
+A form is an **object** in the DOM (Document Object Model), so when we submit a form, all the form DOM objects inside our HTML are sent with the data submission to the server.
+
+The majority of the form elements hold a single value, so they are quite easy to access. The select and radio button elements are a bit more complex.
+<br/>
+<br/>
+
+### Form methods and events ###
+
+The most useful properties of the **form object** are the **elements array** and its **objects**. Other important properties of this object are:
+
+- `action`: contains the value of the action attribute of a form.
+- `encoding`: it is an alias of `enctype`, and returns the value of the enctype attribute of the form.
+- `method`: contains the value of the method attribute of a form.
+- `name`: contains the value of the name attribute of a form.
+- `target`: contains the value of the target attribute of a form.
+- `length`: specifies the number of elements in the form. It has the same value as the length properties of the elements of the array.
+
+
+The form object also has two **methods**:
+
+- `submit()`: this function submits the form immediately, without waiting for the user to press submit.
+- `reset()`: this function clears the contents of the form and sets them back to the default values.
+<br/>
+
+### Form validation ###
+
+The contents of a form need to be **validated**. This can be done with client-side JavaScript or server-side checks and balances. HTML5 also provides validation tags that don't need scripting, which is supported in most modern browsers.
+<br/>
+<br/>
+
+### Tag hierarchy and ownership ###
+
+Before, it was required that input tags were put within a `form` tag. Now it is possible to place these on their own, by adding the `form` attribute to them.
+
+```html
+<!-- Standard syntax -->
+<form id="myForm">
+  <input type="submit" value="Click me!"/>
+</form>
+
+<!-- New form attribute -->
+<input type="submit" value="Click me!" form="myForm"/>
+```
+<br/>
+
+### New input elements ###
+
+HTML5 includes many new form types. Not all these are supported by all browsers, so when a browser doesn't understand one of the form types, they are rendered as a `text` input type.
+
+There is no requirement as to how browsers render the different input types. Each browser might show different UI and error messages. If a browser fails to support the new HTML5 types, we can defend against this using JavaScript:
+
+```JavaScript
+var i = document.createElement("input");
+i.setAttribute("type", "date");
+
+if (i.type == "text") {
+  // Do something
+}
+```
+<br/>
+
+### The placeholder attribute ###
+
+HTML5 also provides the option to set a **placeholder** for an input field. This text is displayed inside the input field when it's empty and not focused. As soon as we select the input field, the placeholder disappears. Placeholders are only text, and do NOT provide a default value for the element.
+
+```html
+<input type="text" name="username" placeholder="Please type your username"/>
+```
+<br/>
+<br/>
+
+### The autofocus attribute ###
+
+The **autofocus** attribute introduced by HTML5 can be used on all web form controls. It works by moving the input focus to a particular field as soon as the page loads. As this is controlled by the markup, it will be consistent across websites.
+
+```html
+<input type="text" name="username" autofocus/>
+```
+<br/>
+<br/>
+
+### Required fields ###
+
+In HTML5 we can specify that a form field is **required** in order for the form to be submitted, this makes the field mandatory for the user. Most browsers will display an error message instructing the user to fill a field after an unsuccessful submission.
+
+```html
+<input type="text" name="username" required/>
+```
+<br/>
+<br/>
+
+### Special input types ###
+
+Some new input types have special functionalities that depends on the browser:
+
+- `<input type="email"/>`: the email input type provides email validation when used in Firefox, Safari and Opera, and in iPhone it brings up special buttons in the keyboard (i.e. @).
+
+- `<input type="url"/>`: the url input type, in Firefox and Safari, require that the user inputs a http:// address in order to submit the form. Opera adds this prefix once the form has been submitted. On an iPhone, this enables a keyboard with special buttons (i.e. .com).
+<br/>
 
 
 **Do exercise 13 for homework**
