@@ -278,7 +278,7 @@ Forms are created with the `<form>` tag, which takes two attributes. The first o
 <form action="/enrol.php" method="POST">
   <input type="text" name="username"/>
   <input type="text" name="password"/>
-  <input type="submit" value ="Enrol"/>
+  <input type="submit" value="Enrol"/>
 </form>
 ```
 <br/>
@@ -377,6 +377,15 @@ if (i.type == "text") {
 ```
 <br/>
 
+Some new input types have special functionalities that depend on the browser:
+
+- `<input type="email"/>`: the email input type provides email validation when used in Firefox, Safari and Opera, and in iPhone it brings up special buttons in the keyboard (i.e. @).
+
+- `<input type="url"/>`: the url input type, in Firefox and Safari, require that the user inputs a http:// address in order to submit the form. Opera adds this prefix once the form has been submitted. On an iPhone, this enables a keyboard with special buttons (i.e. .com).
+
+- `<input type="date"/>`: the date input type, as well as other similar types for date and time (`type="datetime"`, `type="datetime-local"`, `type="time"`, `type="week"`, `type="month"`), allow date validation or present you with a date picker, depending on the browser support.
+<br/>
+
 ### The placeholder attribute ###
 
 HTML5 also provides the option to set a **placeholder** for an input field. This text is displayed inside the input field when it's empty and not focused. As soon as we select the input field, the placeholder disappears. Placeholders are only text, and do NOT provide a default value for the element.
@@ -384,7 +393,6 @@ HTML5 also provides the option to set a **placeholder** for an input field. This
 ```html
 <input type="text" name="username" placeholder="Please type your username"/>
 ```
-<br/>
 <br/>
 
 ### The autofocus attribute ###
@@ -395,7 +403,6 @@ The **autofocus** attribute introduced by HTML5 can be used on all web form cont
 <input type="text" name="username" autofocus/>
 ```
 <br/>
-<br/>
 
 ### Required fields ###
 
@@ -405,17 +412,40 @@ In HTML5 we can specify that a form field is **required** in order for the form 
 <input type="text" name="username" required/>
 ```
 <br/>
+
+### The pattern attribute ###
+
+We can use regular expressions for form validation with the **pattern** attribute. The input's value is checked against this regular expression for the following input types: `text`, `search`, `url`, `tel`, `email` and `password`.
+
+```html
+<input type="text" password="username" pattern="^[a-zA-Z]\w{3,14}$"/>
+```
 <br/>
 
-### Special input types ###
+### Submitting and resetting forms ###
 
-Some new input types have special functionalities that depends on the browser:
+We can easily submit or reset a form using the `submit` and `reset` input types.
 
-- `<input type="email"/>`: the email input type provides email validation when used in Firefox, Safari and Opera, and in iPhone it brings up special buttons in the keyboard (i.e. @).
+- `<input type="submit">`: when we click on the button rendered by this input, our form `action` is automatically executed.
 
-- `<input type="url"/>`: the url input type, in Firefox and Safari, require that the user inputs a http:// address in order to submit the form. Opera adds this prefix once the form has been submitted. On an iPhone, this enables a keyboard with special buttons (i.e. .com).
+- `<input type="reset">`: when we click on the button rendered by this input, our form resets and goes back to the default values for each element in the form.
+
+```html
+<form action="/login.php" method="POST">
+  <input type="text" name="username"/>
+  <input type="text" name="password"/>
+  <input type="submit" value="Log in"/>
+  <input type="reset" value="Reset fields"/>
+</form>
+```
 <br/>
 
+### The button element ###
 
-**Do exercise 13 for homework**
-**Read 287 to 330**
+The `<button>` element provides a clickable button that allows additional functionality. For example, it can contain text and images, as well as execute code when the user interacts with the button.
+
+Also, it can be used to submit or reset a form if we add a `type="submit"` or `type="reset"` attribute to it. It is good practice to define this type, as depending on the browser, the default type for the button will be different.
+
+```html
+<button type="submit" id="submit" onclick="alert('Thanks')">Submit</button>
+```
