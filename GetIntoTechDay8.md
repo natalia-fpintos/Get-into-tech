@@ -400,7 +400,7 @@ HTML5 also provides the option to set a **placeholder** for an input field. This
 The **autofocus** attribute introduced by HTML5 can be used on all web form controls. It works by moving the input focus to a particular field as soon as the page loads. As this is controlled by the markup, it will be consistent across websites.
 
 ```html
-<input type="text" name="username" autofocus/>
+<input type="text" name="username" autofocus="true"/>
 ```
 <br/>
 
