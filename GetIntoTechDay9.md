@@ -68,6 +68,4 @@ We can also see all this information in the developer tools, going into the **Ne
 
 **homework: exercise 14 and 15**
 **reading material: up to 358**
-
-**Team: Laura, Steph, Teyah**
-**Hangouts: 7:45 to 8:10**
+**Hangouts: 7:50 to 8:20**
