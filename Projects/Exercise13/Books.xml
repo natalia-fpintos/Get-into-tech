@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookstore>
+  <book category="cooking">
+    <title lang="en">Jamie's 15 Minute Meals</title>
+    <author>Jamie Oliver</author>
+    <year>2012</year>
+    <price>8.00</price>
+  </book>
+  <book category="cooking">
+    <title lang="en">How to be a Domestic Goddess</title>
+    <author>Nigella Lawson</author>
+    <year>1998</year>
+    <price>16.00</price>
+  </book>
+  <book category="children">
+    <title lang="en">Harry Potter and the Philosopher's Stone</title>
+    <author>J K. Rowling</author>
+    <year>1997</year>
+    <price>3.50</price>
+  </book>
+  <book category="children">
+    <title lang="en">Harry Potter and the Cursed Child</title>
+    <author>J K. Rowling</author>
+    <year>2016</year>
+    <price>6.00</price>
+  </book>
+  <book category="web" cover="paperback">
+    <title lang="en">XML for Dummies</title>
+    <author>Lucinda Dykes</author>
+    <author>Ed Tittel</author>
+    <year>2005</year>
+    <price>21.99</price>
+  </book>
+</bookstore>

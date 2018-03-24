@@ -1,0 +1,5 @@
+Lisa Simpson	lisa@yahoo.com	555-123-456
+Bart Simpson	bart@live.co.uk	555-999-666
+Wilma Flintstone	wilma@outlook.com	333-654-654
+Fred Flintstone	fred@bedrock.com	333-654-654
+
