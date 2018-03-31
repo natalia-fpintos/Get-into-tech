@@ -385,7 +385,3 @@ When the JS code is contained in the `<body>` of an HTML document, it loaded aft
 </body>
 ```
 <br/>
-
-**homework: exercise 14 and 15**
-**reading material: up to 358**
-**Hangouts: 7:50 to 8:20**
