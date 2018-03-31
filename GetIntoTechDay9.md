@@ -385,3 +385,15 @@ When the JS code is contained in the `<body>` of an HTML document, it loaded aft
 </body>
 ```
 <br/>
+
+### JavaScript in external files ###
+
+It is also possible to keep our JavaScript in an external file, which we then link in our HTML in order to have access to all its code. This makes our code easier to read and maintain.
+
+In order to include many JS files in our page, we need to include them in a different `<script>` tag for each file.
+
+```html
+<head>
+  <script src="myScript.js"></script>
+</head>
+```
