@@ -1,5 +1,17 @@
 # Get Into Tech: Day 10 #
 
+## Notes about JS and HTML ##
+
+**IDL:** Interface definition languages
+Like the DOM, it is written in the same way in all programming languages.
+
+**<script>**
+If we don't specify the language or type of the script, the browser assumes it's JS.
+
+**blur:** the state between moving from one field to another (like when we tab through fields or click over a new field).
+<br/>
+<br/>
+
 ## jQuery ##
 
 jQuery is a library that makes easier to program in JS, by providing methods that we can call with a single line of code as opposed to write many lines to achieve the same result. This makes a real difference when using AJAX or doing DOM manipulation.
