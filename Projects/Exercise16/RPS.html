@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Rock, Paper, Scissors!</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div id="header" class="container d-flex flex-column justify-content-between align-items-center">
+            <h1>Let's play Rock, Paper, Scissors!</h1>
+            <p>Choose your move:</p>
+        </div>
+        <div id="userChoices" class="container d-flex justify-content-around align-items-center">
+            <div id="Rock">
+                <a onclick="play('Rock')">
+                    <img src="images/Rock.png" alt="Rock"/>
+                    <p class="mt-2">Rock</p>
+                </a>
+            </div>
+            <div id="Paper">
+                <a onclick="play('Paper')">
+                    <img src="images/Paper.png" alt="Paper"/>
+                    <p class="mt-2">Paper</p>
+                </a>
+            </div>
+            <div id="Scissors">
+                <a onclick="play('Scissors')">
+                    <img src="images/Scissors.png" alt="Scissors"/>
+                    <p class="mt-2">Scissors</p>
+                </a>
+            </div>
+        </div>
+        <div id="result" class="container d-flex justify-content-around align-items-center">
+            <!-- The result of the game will be inserted here -->
+        </div>
+        <script>
+            function play (strChoice) {
+                var xhttp;
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState === 4 && this.status === 200) {
+                        document.getElementById('result').innerHTML = this.responseText;
+                    }
+                };
+                // POST request with the key-value pairs sent in the body of the HTTP request
+                xhttp.open("POST", "GameFunctions.php", true);
+                
+                // Because it's POST we need to specify the content type header
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                
+                // Here we send the query string so it goes in the body of the POST request
+                xhttp.send("choice=" + strChoice);
+            }
+        </script>
+    </body>
+</html>

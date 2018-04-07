@@ -1,0 +1,22 @@
+#header {
+    height: 150px;
+    margin-top: 40px;
+}
+
+#userChoices {
+    height: 250px;
+}
+
+#result {
+    margin-top: 40px;
+    height: 100px;
+    width: 300px;
+}
+
+img {
+    width: 200px;
+}
+
+div {
+    text-align: center;
+}
