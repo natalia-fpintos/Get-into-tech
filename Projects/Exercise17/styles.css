@@ -1,0 +1,38 @@
+.box-icon {
+    width: 35px;
+    padding: 5px;
+}
+
+.cookie-icon {
+    width: 45px;
+    padding: 5px;
+}
+
+nav {
+    background-color: #84DCCF;
+}
+
+.session-nav {
+    background-color: #F4D364;
+}
+
+.callout {
+    border: 1px solid #eee;
+    border-left-width: 5px;
+}
+
+.warning {
+    border-left-color: #f0ad4e;
+}
+
+.info {
+    border-left-color: #5bc0de;
+}
+
+.error {
+    border-left-color: #d9534f;
+}
+
+.warning {
+    border-left-color: #f0ad4e;
+}
